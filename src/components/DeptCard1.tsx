@@ -33,7 +33,7 @@ const DeptCard1 = () => {
     );
 
     return (
-        <div className=''>
+        <div className='ml-5'>
             {!toggle && 
                 <AddIcon className='mr-2 cursor-pointer' onClick={() => setToggle(!toggle)} />
             }

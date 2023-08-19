@@ -10,14 +10,8 @@ export interface DepartmentProps {
     sub_departments: string[];
 }
 
-export interface LoginProps {
-    name: string;
-    phone: number;
-    email: string;
-}
-
 export interface UserData {
     name: string;
     phoneNumber: string;
     email: string;
-  }
+}

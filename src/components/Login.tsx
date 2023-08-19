@@ -11,9 +11,15 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Hii I am Manan");
-    localStorage.setItem('login', 'true');
-    navigate('/main-content')
+    if (name && phoneNumber && email) {
+      const userData = {
+        name,
+        phoneNumber,
+        email,
+      };
+      localStorage.setItem('userData', JSON.stringify(userData));
+      navigate('/main-content')
+    }
   };
 
   return (
@@ -21,7 +27,7 @@ const Login = () => {
       <CssBaseline />
       <div className='flex flex-col items-center justify-center'>
         <Typography component="h1" variant="h5">
-          Enter your Details
+          Enter your Details (Page 1)
         </Typography>
         <form onSubmit={handleSubmit}>
           <TextField
