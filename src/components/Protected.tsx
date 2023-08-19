@@ -10,7 +10,7 @@ export default function Protected(props: { Component: any; }) {
     useEffect(() => {
         const userDataString = localStorage.getItem('userData');
         if (!userDataString) {
-            alert('Please enter your details first. It may appear twice because of the use of useNavigate hook.');
+            // alert('Please enter your details first. It may appear twice because of the use of useNavigate hook.');
             navigate('/');
         }
 
