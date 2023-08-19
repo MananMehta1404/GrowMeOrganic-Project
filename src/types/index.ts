@@ -15,3 +15,9 @@ export interface LoginProps {
     phone: number;
     email: string;
 }
+
+export interface UserData {
+    name: string;
+    phoneNumber: string;
+    email: string;
+  }

@@ -1,19 +1,66 @@
-import { TextField, Button } from "@mui/material";
+import { useState, useEffect } from 'react';
+import { Button, Container, CssBaseline, TextField, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-export default function App() {
-  const handleClick = () => {
-    console.log('clicked')
-  }
-  
+const App = () => {
+  const [name, setName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    localStorage.setItem('login', 'true');
+    navigate('/main-content');
+  };
+
+  useEffect(() => {
+    const login = localStorage.getItem('login');
+    if(!login) {
+      navigate('/');
+    }
+  })
+
   return (
-    <div className='flex justify-center items-center w-screen h-screen bg-gradient-to-br from-red-300 via-red-100 to-pink-200'>
-      <div className='flex flex-col w-1/3 rounded-2xl p-10 border-2 border-amber-700'>
-        <h1 className='text-4xl text-center m-5'>Enter your Details</h1>
-        <TextField required id="outlined-required" label="Name" variant='outlined' margin='normal' fullWidth color='secondary' />
-        <TextField required id="outlined-required" label="Phone Number" variant='outlined' margin='normal' fullWidth color='secondary' />
-        <TextField required id="outlined-required" label="Email" variant='outlined' margin='normal' fullWidth color='secondary' />
-        <Button variant="contained" onClick={handleClick}>Submit</Button>
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div>
+        <Typography component="h1" variant="h5">
+          Enter your Details
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            label="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            label="Phone Number"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            label="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Button type="submit" fullWidth variant="contained" color="primary">
+            Submit
+          </Button>
+        </form>
       </div>
-    </div>
-  )
-}
+    </Container>
+  );
+};
+
+export default App;
+
+{/* <div className='flex justify-center items-center h-screen bg-gradient-to-br from-red-300 via-red-100 to-pink-200'> */}
