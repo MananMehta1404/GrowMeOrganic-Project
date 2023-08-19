@@ -22,7 +22,7 @@ const PostInfo = () => {
   }, []);
 
   return (
-    <div style={{ height: 600 }} className='flex flex-col justify-center w-100 ml-20'>
+    <div style={{ height: 600 }} className='flex flex-col justify-center w-full ml-20'>
       <h1 className='text-black text-3xl m-5 font-bold'>All Posts</h1>
       <DataGrid rows={allPosts} columns={columns} />
     </div>

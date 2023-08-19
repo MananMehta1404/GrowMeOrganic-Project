@@ -7,14 +7,14 @@ const Content = () => {
 
   useEffect(() => {
     const login = localStorage.getItem('login');
-    if(!login) {
+    if(login === null) {
       alert('Please enter your details first');
       navigate('/');
     }
   })
 
   return (
-    <div className='flex flex-col justify-center items-center bg-gradient-to-br from-red-300 via-red-100 to-pink-200'>
+    <div className="flex flex-col items-center justify-center w-full">
       <PostInfo />
       <DeptInfo />
     </div>

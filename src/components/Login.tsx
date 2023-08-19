@@ -1,29 +1,25 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Container, CssBaseline, TextField, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const App = () => {
+const Login = () => {
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
+
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Hii I am Manan");
     localStorage.setItem('login', 'true');
-    navigate('/main-content');
+    navigate('/main-content')
   };
 
-  useEffect(() => {
-    const login = localStorage.getItem('login');
-    if(!login) {
-      navigate('/');
-    }
-  })
-
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className='h-screen mt-44'>
       <CssBaseline />
-      <div>
+      <div className='flex flex-col items-center justify-center'>
         <Typography component="h1" variant="h5">
           Enter your Details
         </Typography>
@@ -61,6 +57,4 @@ const App = () => {
   );
 };
 
-export default App;
-
-{/* <div className='flex justify-center items-center h-screen bg-gradient-to-br from-red-300 via-red-100 to-pink-200'> */}
+export default Login;
