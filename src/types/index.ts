@@ -6,8 +6,8 @@ export interface PostProps {
 }
 
 export interface DepartmentProps {
-    dept_name: string;
-    sub_dept: [string];
+    department: string;
+    sub_departments: string[];
 }
 
 export interface LoginProps {

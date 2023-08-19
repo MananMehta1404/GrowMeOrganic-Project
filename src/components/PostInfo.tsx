@@ -4,8 +4,8 @@ import { DataGrid } from '@mui/x-data-grid';
 const columns = [
   { field: 'id', headerName: 'ID', width: 100 },
   { field: 'userId', headerName: 'User ID', width: 100 },
-  { field: 'title', headerName: 'Title', width: 200 },
-  { field: 'body', headerName: 'Body', width: 200 },
+  { field: 'title', headerName: 'Title', width: 500 },
+  { field: 'body', headerName: 'Body', width: 500 },
 ];
 
 const PostInfo = () => {
@@ -22,7 +22,7 @@ const PostInfo = () => {
   }, []);
 
   return (
-    <div style={{ height: 600 }} className='flex flex-col justify-center items-center w-1/2'>
+    <div style={{ height: 600 }} className='flex flex-col justify-center w-100 ml-20'>
       <h1 className='text-black text-3xl m-5 font-bold'>All Posts</h1>
       <DataGrid rows={allPosts} columns={columns} />
     </div>
